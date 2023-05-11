@@ -1,23 +1,17 @@
 package main
 
 import (
+	"code_site/controller"
 	"code_site/dao"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func init() {
 	dao.Connect()
 }
 
-func index(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": 123,
-	})
-}
-
 func main() {
 	engine := gin.Default()
-	engine.GET("/", index)
+	controller.RouterHandler(engine)
 	engine.Run(":7788")
 }

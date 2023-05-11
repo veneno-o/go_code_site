@@ -1,6 +1,6 @@
 package dao
 
-type issue struct {
+type Issue struct {
 	Id            int    `json:"id"`
 	IssueTitle    string `json:"issueTitle"`    // 问题标题
 	IssueContent  string `json:"issueContent"`  // 问题描述

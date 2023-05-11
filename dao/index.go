@@ -21,4 +21,6 @@ func Connect() {
 	} else {
 		log.Println("mysql数据库: code_site 连接成功")
 	}
+	//2.迁移表结构
+	Db.Migrator().AutoMigrate(&Admin{}, &Book{}, &Comment{}, &Interview{}, &Issue{}, &Types{}, &User{})
 }

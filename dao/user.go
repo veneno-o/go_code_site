@@ -1,6 +1,6 @@
 package dao
 
-type user struct {
+type User struct {
 	Id            int    `json:"id"`            // mongodb 自动生成的 id
 	LoginId       string `json:"loginId"`       // 账号
 	LoginPwd      string `json:"loginPwd"`      // 密码

@@ -1,6 +1,6 @@
 package dao
 
-type admin struct {
+type Admin struct {
 	Id         int    `json:"id"`
 	LoginId    string `json:"loginId"`    // 账号
 	LoginPwd   string `json:"loginPwd"`   // 密码
