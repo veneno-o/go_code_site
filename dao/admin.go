@@ -2,10 +2,10 @@ package dao
 
 type admin struct {
 	Id         int    `json:"id"`
-	LoginId    string `json:"loginId"`
-	LoginPwd   string `json:"loginPwd"`
-	Nickname   string `json:"nickname"`
-	Avatar     string `json:"avatar"`
-	Permission int    `json:"permission"`
-	Enabled    bool   `json:"enabled"`
+	LoginId    string `json:"loginId"`    // 账号
+	LoginPwd   string `json:"loginPwd"`   // 密码
+	Nickname   string `json:"nickname"`   //昵称
+	Avatar     string `json:"avatar"`     // 头像
+	Permission int    `json:"permission"` // 权限
+	Enabled    bool   `json:"enabled"`    // 是否可用
 }
