@@ -1,14 +1,45 @@
 package dao
 
-type Book struct {
-	Id            int    `json:"id"`
-	BookTitle     string `json:"bookTitle"`     // 书籍标题
-	BookPic       string `json:"bookPic"`       // 书籍图片
-	DownloadLink  string `json:"downloadLink"`  // 下载链接
-	BookIntro     string `json:"bookIntro"`     // 书籍介绍
-	ScanNumber    int    `json:"scanNumber"`    // 浏览数
-	CommentNumber int    `json:"commentNumber"` // 评论数
-	OnShelfDate   string `json:"onShelfDate"`   // 上架日期
-	RequirePoints int    `json:"requirePoints"` // 下砸所需积分
-	TypeId        int    `json:"typeId"`        //  所属分类
+import (
+	"code_site/model"
+	"log"
+)
+
+// AddBook 添加书籍
+func AddBook(book *model.Book) error {
+	result := Db.Create(&book)
+	if result.Error != nil {
+		return result.Error
+	} else {
+		log.Printf("AddBook:err>>>%t\n", result.Error)
+		return nil
+	}
 }
+
+// DelBook 根据id删除书籍
+// func DelBook(id int) res {
+//
+// }
+//
+// // UpdateBookById 根据id修改书籍
+// func UpdateBookById(id int, book *dao.Book) res {
+//
+// }
+
+// GetBookById 根据id获取书籍
+func GetBookById(id int) (*model.Book, error) {
+	var book *model.Book
+	tx := Db.Debug().First(&book, id)
+
+	if tx.Error != nil {
+		log.Println(tx.Error.Error())
+		return nil, tx.Error
+	} else {
+		return book, nil
+	}
+}
+
+// // GetBookByPage 分页获取书籍
+// func GetBookByPage() res {
+//
+// }
